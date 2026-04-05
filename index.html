@@ -68,7 +68,48 @@
       color: var(--color-text-secondary);
       margin: 0;
     }
-  </style>
+
+    .toc {
+      margin: 20px 0 8px;
+      padding: 14px 16px;
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin: 0 0 10px;
+    }
+    .toc-group { margin-bottom: 10px; }
+    .toc-group:last-child { margin-bottom: 0; }
+    .toc-group-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 4px;
+    }
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+    }
+    .toc li { font-size: 12px; line-height: 1.5; }
+    .toc a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--color-border-secondary);
+    }
+    .toc a:hover { color: var(--color-text-primary); }
+
+    .row-body { scroll-margin-top: 16px; }
+</style>
 
   <style>
     .mwrap { padding: 1.5rem 0; font-family: var(--font-sans); }
@@ -126,9 +167,47 @@
 <body>
   <div class="container">
     <header class="page-header">
-      <h1 class="page-title">GRO · Метрики тренажёров</h1>
-      <p class="page-sub">Справочник KPI по тренажёрам: клиентский опыт, операционка, монетизация. Версия v1 · 31.03.2026.</p>
+      <h1 class="page-title">Список метрик для цифрового продукта B2C</h1>
+      <p class="page-sub">Справочник KPI: клиентский опыт, операционка, монетизация. Версия v1 · 31.03.2026.</p>
     </header>
+
+    <nav class="toc" aria-label="Оглавление">
+      <p class="toc-title">Оглавление</p>
+      <div class="toc-group">
+        <div class="toc-group-name">Клиентский опыт</div>
+        <ol>
+          <li><a href="#m1">1. Session Start Rate</a></li>
+          <li><a href="#m2">2. Drop-off</a></li>
+          <li><a href="#m3">3. Session Duration</a></li>
+          <li><a href="#m4">4. Artifact Save Rate</a></li>
+          <li><a href="#m5">5. Completion Rate</a></li>
+          <li><a href="#m6">6. Rating</a></li>
+          <li><a href="#m7">7. Energy Score</a></li>
+          <li><a href="#m8">8. Return Rate</a></li>
+        </ol>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-name">Операционные</div>
+        <ol>
+          <li><a href="#m9">9. Token Usage + Cost per Session</a></li>
+          <li><a href="#m10">10. Error Rate</a></li>
+          <li><a href="#m11">11. Forced Exit Rate</a></li>
+        </ol>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-name">Монетизация</div>
+        <ol>
+          <li><a href="#m12">12. Next Trainer Conversion Rate</a></li>
+          <li><a href="#m13">13. Partner Click-through Rate</a></li>
+        </ol>
+      </div>
+      <div class="toc-group">
+        <div class="toc-group-name">Дополнительно</div>
+        <ol>
+          <li><a href="#read-together">Читать вместе</a></li>
+        </ol>
+      </div>
+    </nav>
 
     <div class="mwrap">
 
@@ -137,7 +216,7 @@
 
         <div class="row">
           <div class="row-num">1</div>
-          <div class="row-body">
+          <div class="row-body" id="m1">
             <div class="row-title">Session Start Rate</div>
             <div class="row-desc">Доля запусков от показов в каталоге. Конвертация интереса в действие.</div>
             <div class="pills"><span class="row-formula">начал ÷ увидел</span></div>
@@ -167,7 +246,7 @@
 
         <div class="row">
           <div class="row-num">2</div>
-          <div class="row-body">
+          <div class="row-body" id="m2">
             <div class="row-title">Drop-off — прогресс и время</div>
             <div class="row-desc">Составная метрика из двух измерений для незавершённых сессий.</div>
             <div class="sub-pair">
@@ -181,7 +260,7 @@
 
         <div class="row">
           <div class="row-num">3</div>
-          <div class="row-body">
+          <div class="row-body" id="m3">
             <div class="row-title">Session Duration</div>
             <div class="row-desc">Медиана времени прохождения завершённых сессий. Сравнивается с плановым: слишком быстро — не вчитывается, слишком долго — перегружен.</div>
             <div class="pills"><span class="row-formula">медиана минут по завершённым сессиям</span></div>
@@ -191,7 +270,7 @@
 
         <div class="row">
           <div class="row-num">4</div>
-          <div class="row-body">
+          <div class="row-body" id="m4">
             <div class="row-title">Artifact Save Rate</div>
             <div class="row-desc">Доля сессий с сохранением или пересылкой артефакта. Прокси воспринимаемой ценности.</div>
             <div class="pills"><span class="row-formula">сохранил ÷ дошёл до артефакта</span></div>
@@ -201,7 +280,7 @@
 
         <div class="row">
           <div class="row-num">5</div>
-          <div class="row-body">
+          <div class="row-body" id="m5">
             <div class="row-title">Completion Rate</div>
             <div class="row-desc">Доля сессий, завершённых до конца. Основная метрика качества тренажёра.</div>
             <div class="pills"><span class="row-formula">завершил ÷ начал</span></div>
@@ -211,7 +290,7 @@
 
         <div class="row">
           <div class="row-num">6</div>
-          <div class="row-body">
+          <div class="row-body" id="m6">
             <div class="row-title">Rating — оценка тренажёра клиентом</div>
             <div class="row-desc">Явная оценка тренажёра по 5-балльной шкале после завершения. Единственная метрика, где клиент высказывается напрямую о качестве содержания.</div>
             <div class="pills"><span class="row-formula">среднее по завершённым сессиям</span></div>
@@ -222,7 +301,7 @@
 
         <div class="row">
           <div class="row-num">7</div>
-          <div class="row-body">
+          <div class="row-body" id="m7">
             <div class="row-title">Energy Score</div>
             <div class="row-desc">Уровень энергии после тренажёра (1–10). Эмоциональный результат сессии. В идеале — дельта к входному состоянию.</div>
             <div class="pills"><span class="row-formula">среднее по завершённым сессиям</span></div>
@@ -232,7 +311,7 @@
 
         <div class="row">
           <div class="row-num">8</div>
-          <div class="row-body">
+          <div class="row-body" id="m8">
             <div class="row-title">Return Rate</div>
             <div class="row-desc">Доля пользователей, вернувшихся к тренажёру повторно. Долгосрочный сигнал ценности.</div>
             <div class="pills"><span class="row-formula">вернулся ÷ завершил</span></div>
@@ -247,7 +326,7 @@
 
         <div class="row">
           <div class="row-num">9</div>
-          <div class="row-body">
+          <div class="row-body" id="m9">
             <div class="row-title">Token Usage + Cost per Session</div>
             <div class="row-desc">Расход токенов и стоимость в долларах на одно прохождение. Дорогой тренажёр с низким completion — кандидат на оптимизацию промта.</div>
             <div class="pills"><span class="row-formula">токены × тариф модели</span></div>
@@ -257,7 +336,7 @@
 
         <div class="row">
           <div class="row-num">10</div>
-          <div class="row-body">
+          <div class="row-body" id="m10">
             <div class="row-title">Error Rate</div>
             <div class="row-desc">Доля сессий с техническими сбоями. Тип ошибки фиксировать отдельно: внешняя (Anthropic API) или внутренняя (GRO).</div>
             <div class="pills"><span class="row-formula">сессии с ошибкой ÷ все сессии</span></div>
@@ -267,7 +346,7 @@
 
         <div class="row">
           <div class="row-num">11</div>
-          <div class="row-body">
+          <div class="row-body" id="m11">
             <div class="row-title">Forced Exit Rate</div>
             <div class="row-desc">Доля выходов из приложения прямо во время тренажёра — без завершения и без артефакта. Аварийный выход, в отличие от осознанного drop-off.</div>
             <div class="pills"><span class="row-formula">аварийный выход ÷ активные сессии</span></div>
@@ -282,7 +361,7 @@
 
         <div class="row">
           <div class="row-num">12</div>
-          <div class="row-body">
+          <div class="row-body" id="m12">
             <div class="row-title">Next Trainer Conversion Rate</div>
             <div class="row-desc">Доля пользователей, перешедших на рекомендованный следующий тренажёр. Метрика качества рекомендательной логики и глубины вовлечения.</div>
             <div class="pills"><span class="row-formula">перешёл ÷ получил рекомендацию</span></div>
@@ -292,7 +371,7 @@
 
         <div class="row">
           <div class="row-num">13</div>
-          <div class="row-body">
+          <div class="row-body" id="m13">
             <div class="row-title">Partner Click-through Rate</div>
             <div class="row-desc">Доля кликов по внешней ссылке или партнёрской рекламе при её показе. Базовая метрика монетизации через партнёрства.</div>
             <div class="pills"><span class="row-formula">клик ÷ показ партнёрского блока</span></div>
@@ -305,7 +384,7 @@
       <div class="group g-rel">
         <div class="group-header">Читать вместе</div>
         <div class="row">
-          <div class="row-body">
+          <div class="row-body" id="read-together">
             <div class="row-desc">
               Виджет в тренажёре × Completion Rate → самый тёплый вход, ожидаемо даёт лучший completion. Если нет — проблема в связке тренажёров, а не в самом тренажёре.<br><br>
               Rating + Energy Score → высокий рейтинг + низкая энергия: полезный, но тяжёлый. Низкий рейтинг + высокая энергия: приятный, но не воспринимается как ценный.<br><br>
